@@ -1,0 +1,412 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Jost", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 0.5rem;
+  /* background-color: #428800; */
+  /* // background image for naruto vs  pain from file */
+
+  /* background-image: url("pic/What-episode-does-naruto-fight-pain-1.png.webp"); */
+
+  /* */
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  background-image: url("pic/7BDmiV.webp");
+  background-size: cover;
+  background-position: center;
+  /* font-family: "Sofia", sans-serif; */
+  font-family: "Jost", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 10vh;
+}
+
+.img {
+  color: rgb(255, 255, 255);
+  background-color: #884b00 !important;
+  height: 15vh;
+}
+
+section {
+  width: 90%;
+  max-width: 40rem;
+  margin: auto;
+}
+
+.healthbar {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #575757;
+  margin: 1rem 0;
+  background: #fde5e5;
+}
+
+.healthbar__value {
+  background-color: #00a876;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+}
+
+#log {
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+  background: antiquewhite;
+}
+
+#monster h2,
+#player h2 {
+  margin: 0.25rem;
+}
+
+#controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  font: inherit;
+  border: 1px solid #88005b;
+  background-color: #88005b;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  margin: 1rem;
+  width: 12rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:active {
+  background-color: #af0a78;
+  border-color: #af0a78;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+}
+
+button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  box-shadow: none;
+  color: #3f3f3f;
+  background-image: none;
+
+}
+
+#log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#log li {
+  margin: 0.5rem 0;
+}
+
+.log--player {
+  color: #7700ff;
+}
+
+.log--monster {
+  color: #da8d00;
+}
+
+.log--damage {
+  color: red;
+}
+
+.log--heal {
+  color: green;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Akronim);
+body {
+  background: #ca8;
+}
+.fire {
+  margin: 50px auto;
+  width: 80%;
+  max-width: 1000px;
+  height: 200px;
+  background-position: center center;
+  background-size: 1000px 200px;
+  border-radius: 10px;
+  font-family: "Akronim";
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+}
+.fire:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.Blazing {
+  display: inline-block;
+  margin: 0;
+  color: rgb(255, 115, 0);
+  font-size: 100px;
+  line-height: 50px;
+  min-width: 50px;
+  outline: none;
+  vertical-align: middle;
+  text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange,
+    4px -5px 6px yellow, -4px -10px 10px yellow, 0 -10px 30px yellow;
+  animation: 2s Blazing infinite alternate linear;
+}
+@keyframes Blazing {
+  0% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow,
+      0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow;
+  }
+  25% {
+    text-shadow: 0 3px 20px red, 0 0 30px red, 0 0 20px orange, 0 0 5px yellow,
+      -2px -5px 5px yellow, 3px -10px 10px yellow, -4px -15px 20px yellow;
+  }
+  50% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 -5px 10px orange,
+      -2px -5px 5px yellow, 3px -10px 10px yellow, -4px -15px 20px yellow,
+      2px -20px 30px rgba(255, 255, 0, 0.5);
+  }
+  75% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 -5px 10px orange,
+      3px -5px 5px yellow, -4px -10px 10px yellow,
+      2px -20px 30px rgba(255, 255, 0, 0.5), 0px -25px 40px rgba(255, 255, 0, 0);
+  }
+  100% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow,
+      0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow;
+  }
+}
+
+div#lineButtons {
+  display: inline-flex;
+}
+
+.rasenganButton {
+  /* background-color: #ff0000; */
+  color: rgb(126, 164, 21);
+  font-size: 1.5rem;
+  border: 1px solid rgb(164, 21, 21);
+  border: none;
+  /* border: none; */
+
+  font-weight: bold;
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  background: url("/pic/ransengan.gif");
+  background-size: cover;
+  background-position: center;
+  font-family: "Ninja Naruto";
+  border-radius: 12px;
+  padding: 1rem;
+  width: 12rem;
+  color: rgba(246, 103, 8, 0.93);
+  height: 4.5rem;
+
+  animation: fadeIn 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
+
+.sixButton {
+  /* background-color: #ff0000; */
+  color: rgb(126, 164, 21);
+  font-size: 1.5rem;
+  border: 1px solid rgb(164, 21, 21);
+  border: none;
+  /* border: none; */
+
+  /* font-weight: bold; */
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  background: url("/pic/sizpath.gif");
+  background-size: cover;
+  background-position: center;
+  font-family: "Ninja Naruto";
+  border-radius: 12px;
+  padding: 1rem;
+  width: 12rem;
+  color: rgba(246, 103, 8, 0.93);
+  height: 4.5rem;
+
+  animation: fadeIn 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
+
+.healing {
+  /* background-color: #ff0000; */
+  color: rgb(126, 164, 21);
+  font-size: 1.5rem;
+  border: 1px solid rgb(42, 164, 21);
+  border: none;
+  /* border: none; */
+
+  /* font-weight: bold; */
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  background: url("/pic/healing.avif");
+  background-size: cover;
+  background-position: center;
+  font-family: "Ninja Naruto";
+  border-radius: 12px;
+  padding: 1rem;
+  width: 12rem;
+  color: rgba(15, 202, 30, 0.93);
+  height: 4.5rem;
+
+  animation: fadeIn 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
+.bomb {
+  /* background-color: #ff0000; */
+  color: rgb(126, 164, 21);
+  font-size: 1.5rem;
+  border: 1px solid rgb(164, 21, 21);
+  border: none;
+  /* border: none; */
+
+  /* font-weight: bold; */
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  background: url("/pic/bomb.gif");
+  background-size: cover;
+  background-position: center;
+  font-family: "Ninja Naruto";
+  border-radius: 12px;
+  padding: 1rem;
+  width: 12rem;
+  color: rgb(246, 8, 40);
+  height: 4.5rem;
+
+  animation: fadeIn 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
+
+.Rasenshuriken {
+  color: rgb(126, 164, 21);
+  font-size: 1.3rem;
+  border: 1px solid rgb(164, 21, 21);
+  border: none;
+  /* border: none; */
+
+  /* font-weight: bold; */
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  background: url("/pic/rsenshirukenna.gif");
+  background-size: cover;
+  background-position: center;
+  font-family: "Ninja Naruto";
+  border-radius: 12px;
+  padding: 1rem;
+  width: 12rem;
+  color: rgb(8, 111, 246);
+  height: 4.5rem;
+
+  animation: fadeIn 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
+
+.surrender {
+  color: rgb(126, 164, 21);
+  font-size: 1.3rem;
+  border: 1px solid rgb(164, 21, 21);
+  border: none;
+  /* border: none; */
+
+  /* font-weight: bold; */
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  background: url("/pic/surrender.gif");
+  background-size: cover;
+  background-position: center;
+  font-family: "Ninja Naruto";
+  border-radius: 12px;
+  padding: 1rem;
+  width: 12rem;
+  color: rgba(246, 103, 8, 0.93);
+  height: 4.5rem;
+
+  animation: fadeIn 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
+
+.sexyjutsu {
+  color: rgb(126, 164, 21);
+  font-size: 1.3rem;
+  border: 1px solid rgb(164, 21, 21);
+  border: none;
+  /* border: none; */
+
+  /* font-weight: bold; */
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  background: url("/pic/sexyjutsu.gif");
+  background-size: cover;
+  background-position: center;
+  font-family: "Ninja Naruto";
+  border-radius: 12px;
+  padding: 1rem;
+  width: 12rem;
+  color: rgba(246, 8, 195, 0.93);
+  height: 4.5rem;
+
+  animation: fadeIn 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
