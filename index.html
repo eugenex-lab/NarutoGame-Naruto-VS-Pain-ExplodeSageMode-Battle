@@ -1,6 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="text/javascript">
+      function noBack() {
+        window.history.forward();
+      }
+    </script>
+    <script type="text/javascript">
+      noBack();
+      window.onload = noBack;
+      window.onpageshow = function (evt) {
+        if (evt.persisted) noBack();
+      };
+      window.onunload = function () {
+        void 0;
+      };
+    </script>
+
+    <script type="text/javascript">
+      // <![CDATA[
+      function xss(data) {
+        //  Prevent XSS attacks
+        return data //  by replacing < and > with &lt; and &gt;
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#x27;")
+          .replace(/\//g, "&#x2F;"); // and replace / with &#x2F;
+      }
+    </script>
+    <script type="text/javascript">
+      function noBack() {
+        window.history.forward();
+      }
+    </script>
+
+    <script type="text/javascript">
+      // <![CDATA[
+      noBack(); // no back button
+      window.onload = noBack; // noBack();
+      window.onpageshow = function (evt) {
+        if (evt.persisted) noBack();
+      }; // IE only
+      window.onunload = function () {
+        void 0;
+      }; // IE only
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue Basics</title>
@@ -12,6 +59,12 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
+    <link href="http://fonts.cdnfonts.com/css/game" rel="stylesheet" />
+    <style>
+      @import url("http://fonts.cdnfonts.com/css/game");
+    </style>
+
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/vue@next" defer></script>
 
@@ -30,36 +83,184 @@
     </header>
     <div id="game">
       <section id="monster" class="container">
-        <h2 >Pain Chakra</h2>
+        <h2>Pain Chakra</h2>
         <div class="healthbar">
-          <div class="healthbar__value" style="background-color:brown"  :style="painChakraBar"></div>
+          <div
+            class="healthbar__value"
+            style="background-color: brown"
+            :style="painChakraBar"
+          ></div>
         </div>
       </section>
       <section id="player" class="container">
         <h2>Naruto Chakra</h2>
         <div class="healthbar">
-          <div class="healthbar__value"  :style="narutoChakraBar"></div>
+          <div class="healthbar__value" :style="narutoChakraBar"></div>
         </div>
       </section>
-      <section id="controls">
-        <div id="lineButtons"> 
-        <button class="rasenganButton"  @click="attackPain" >Rasengan
-        </button >
-        <!-- <button :disabled="activateSageMode" class="sixButton" @click="specialAttackPain" >SAGE Mode</button> -->
-        <button :disabled="activateSageMode " class="sixButton" @click="specialAttackPain" >SAGE Mode</button>
 
-        <button class="healing">Rapid Healing</button>
+      <section
+        id="score"
+        class="container"
+        v-if="winner"
+        style="
+          height: 140px;
+          margin-bottom: 0.2rem;
+          margin-top: 0.2rem;
+          background-image: url(/pic/gameover.png);
+          transform: scaleX(-1);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        "
+      >
+        <!-- <h2>Your Score: {{ score }} Pain Score:{{}}</h2> -->
+        <h3
+          style="
+            margin-bottom: 0.2rem;
+            margin-top: -0rem;
+
+            color: rgb(244, 12, 35);
+            transform: scaleX(-1);
+            font-family: 'GAME', sans-serif;
+            font-size: 2rem;
+          "
+          v-if="winner === 'pain' "
+        >
+          You lose!
+        </h3>
+        <h3
+          style="
+            margin-bottom: 0.2rem;
+            margin-top: -0rem;
+            color: rgb(255, 128, 0);
+            font-family: 'GAME', sans-serif;
+            transform: scaleX(-1);
+
+            font-size: 2rem;
+          "
+          v-else-if="winner === 'naruto'"
+        >
+          You Win
+        </h3>
+        <h3
+          style="
+            margin-bottom: 0.2rem;
+            margin-top: -0rem;
+            transform: scaleX(-1);
+            color: rgb(255, 128, 0);
+            font-family: 'GAME', sans-serif;
+            font-size: 2rem;
+          "
+          v-else
+        >
+          Draw
+        </h3>
+
+        <button
+          @click="startGame"
+          style="
+            color: rgb(151, 17, 17);
+            background-color: rgb(38, 183, 27);
+            font-family: Ninja Naruto;
+            margin-bottom: 0.2rem;
+            margin-top: -0rem;
+            transform: scaleX(-1);
+          "
+        >
+          New Game
+        </button>
+      </section>
+
+      <section id="FinalScreen" class="container" v-if="winner">
+        <h2>
+          <!-- <div class="narutoScreen" v-if="winner === 'naruto'"> -->
+
+          <div>
+            <img v-if="winner === 'naruto'" class="sceenDisplayNaruto" alt="" />
+          </div>
+          <div>
+            <img v-if="winner === 'pain'" class="sceenDisplayPain" alt="" />
+          </div>
+        </h2>
+      </section>
+
+      <section id="controls" v-show="show" :style="showControl" v-else>
+        <div id="lineButtons">
+          <button
+            class="rasenganButton"
+            @click="attackPainRansengan"
+            :disabled="fininsh"
+          >
+            Rasengan
+          </button>
+          <!-- <button :disabled="activateSageMode" class="sixButton" @click="specialAttackPain" >SAGE Mode</button> -->
+          <button
+            :disabled="battleHitRound % 3 !== 0"
+            class="sixButton"
+            @click="specialAttackPainSageMode"
+            :disabled="fininsh"
+          >
+            SAGE Mode
+          </button>
+
+          <button
+            :disabled="hits % 5 !==0"
+            class="healing"
+            @click="specialHealingMode"
+            :disabled="fininsh"
+          >
+            Rapid Healing
+          </button>
         </div>
-      <div id="lineButtons">
-        <button class="bomb">9 Tails Bomb</button>
-        <button class="Rasenshuriken" >Ultra Rasenshuriken</button>
-        <button class="sexyjutsu">Sexy no Jutsu</button>
-      </div>
-      <button class="surrender">  SURRENDER</button>
+        <div id="lineButtons">
+          <button
+            :disabled="hits % 10 !==0"
+            class="bomb"
+            @click="specialTailBeastBomb"
+            :disabled="fininsh"
+          >
+            9 Tails Bomb
+          </button>
+          <button
+            :disabled="battleHitRound % 10 !==0"
+            class="Rasenshuriken"
+            @click="specialRasenshuriken"
+            :disabled="fininsh"
+          >
+            Ultra Rasenshuriken
+          </button>
+          <button
+            :disabled="battleHitRound % 4 !==0"
+            class="sexyjutsu"
+            @click="specialSexyjutsu"
+            :disabled="fininsh"
+          >
+            Sexy no Jutsu
+          </button>
+        </div>
+        <button class="surrender" @click="surrender" :disabled="fininsh">
+          SURRENDER
+        </button>
+      </section>
 
       <section id="log" class="container">
-        <h2>Battle Log</h2>
-        <ul></ul>
+        <h2
+        style="
+          margin-bottom: 0.2rem;
+          margin-top: -0rem;
+          color: rgb(226, 49, 0);
+          font-family: Ninja Naruto;
+          font-size: 2rem;
+        "
+        >Battle Log</h2
+          
+          >
+        <ul>
+          <li v-for="logg in messageLogs">
+            <span>{{ logg.actionPlayer }} - {{ logg.actionType }} - <span style="color:crimson"> {{ logg.actionValue }} </span> </span>
+          </li>
+        </ul>
       </section>
     </div>
   </body>

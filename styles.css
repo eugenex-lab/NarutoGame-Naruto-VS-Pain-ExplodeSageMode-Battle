@@ -88,6 +88,17 @@ section {
   justify-content: center;
 }
 
+#FinalScreen {
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.7rem 0.8rem 5rem 0.2rem;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+  background: rgb(14, 9, 3);
+  height: 50vh;
+}
+
 button {
   font: inherit;
   border: 1px solid #88005b;
@@ -118,7 +129,6 @@ button:disabled {
   box-shadow: none;
   color: #3f3f3f;
   background-image: none;
-
 }
 
 #log ul {
@@ -210,6 +220,36 @@ body {
 
 div#lineButtons {
   display: inline-flex;
+}
+
+.sceenDisplayNaruto {
+  width: 101%;
+  /* height: 100%; */
+  background-image: url("/pic/main.gif");
+  background-size: cover;
+  background-position: center;
+  height: 44vh;
+  margin: auto;
+  position: relative;
+  top: -20px;
+  bottom: 20px;
+  object-fit: cover;
+}
+
+.sceenDisplayPain {
+  /* width: 100%;
+  height: 100%; */
+  width: 101%;
+  background-image: url("/pic/mainPain.gif");
+  background-size: cover;
+  background-position: center;
+  /* font-family: "Sofia", sans-serif; */
+  height: 44vh;
+  margin: auto;
+  position: relative;
+  top: -20px;
+  bottom: 20px;
+  object-fit: cover;
 }
 
 .rasenganButton {
@@ -355,6 +395,15 @@ div#lineButtons {
   animation-duration: 0.3s;
 }
 
+.scoreStyle {
+  color: rgb(131, 5, 5);
+  font-size: 1.5rem;
+  border: 1px solid rgb(164, 21, 21);
+  border: none;
+  background-position: center;
+  font-family: "Ninja Naruto";
+}
+
 .surrender {
   color: rgb(126, 164, 21);
   font-size: 1.3rem;
@@ -381,6 +430,37 @@ div#lineButtons {
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
+}
+
+.narutoScreen {
+  border-radius: 25px;
+
+  background-color: #000000;
+  color: rgb(126, 164, 21);
+  font-size: 1.5rem;
+  border: 1px solid rgb(164, 21, 21);
+  border: none;
+  /* border: none; */
+
+  /* font-weight: bold; */
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  background: url("pic/What-episode-does-naruto-fight-pain-1.png.webp");
+  background-size: cover;
+  background-position: center;
+  font-family: "Ninja Naruto";
+  border-radius: 12px;
+  padding: 1rem;
+  width: 12rem;
+  color: rgba(246, 103, 8, 0.93);
+  height: 4.5rem;
+  animation: fadeIn 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+  border-radius: 15px 50px 30px 5px;
 }
 
 .sexyjutsu {
